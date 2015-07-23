@@ -7,16 +7,26 @@
 //
 
 #import "AppDelegate.h"
-
+#import "ViewController.h"
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
-
+@synthesize window = _window;
+@synthesize navigationController = _navigationController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    //Add a custom read-only cache path
+//    NSString *bundledPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"CustomPathImages"];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    ViewController *masterViewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
+    self.window.rootViewController = self.navigationController;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 

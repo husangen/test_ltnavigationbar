@@ -8,8 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
-
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (retain, nonatomic)  UIButton *leftButton;
+@property (retain, nonatomic)  UIButton * moreButton;
+@property (retain, nonatomic)  UIButton * moreButton1;
+@property (weak, nonatomic) IBOutlet UIImageView *top_img;
+@property(nonatomic) CGRect cachedImageViewSize;
+@property(nonatomic) CGPoint cachedImageViewcenter;
 @end
 
